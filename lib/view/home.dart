@@ -1,7 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_page_using_sql/const/colors.dart';
 import 'package:login_page_using_sql/const/height.dart';
+import 'package:login_page_using_sql/view/create_account.dart';
+
+import 'widgets/textform_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -67,11 +72,21 @@ class LoginPage extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                     text: "Don't have an account? ",
-                    style: GoogleFonts.ptSerif(color: black,fontWeight: FontWeight.bold,fontSize: 16),
+                    style: GoogleFonts.ptSerif(
+                        color: black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Sign up',
                         style: GoogleFonts.ptSerif(color: blue),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () =>
+                           Get.to(
+                                () => const CreateAccount(),
+                                duration: const Duration(milliseconds: 1000),
+                                transition: Transition.downToUp
+                              ),
                       ),
                     ],
                   ),
@@ -84,21 +99,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+ 
 
-// ignore: must_be_immutable
-class Textformfield extends StatelessWidget {
-  Textformfield({Key? key, required this.hinttext, this.suffixIcon})
-      : super(key: key);
-  String hinttext;
-  IconData? suffixIcon;
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        border: const OutlineInputBorder(),
-        hintText: hinttext,
-        suffixIcon: Icon(suffixIcon),
-      ),
-    );
-  }
-}
+
