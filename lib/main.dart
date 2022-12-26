@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_page_using_sql/db/db_functions.dart';
 import 'package:login_page_using_sql/view/home.dart';
 
-void main() {
+void main()async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDatabase();
   runApp(const MyApp());
 }
 
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home:  LoginPage(),
     );
   }
 }
