@@ -40,21 +40,28 @@ class CreateAccount extends StatelessWidget {
                       hinttext: 'name',
                       validator: (value) {
                         return createaccountController.nameValidator(value);
-                      }, textcontrolller: createaccountController.nameController,
+                      },
+                      textcontrolller: createaccountController.nameController,
+                      prefixIcon: Icons.person,
                     ),
                     h10,
                     Textformfield(
                       hinttext: 'Email',
                       validator: (value) {
                         return logincontroller.emailValidator(value);
-                      }, textcontrolller: createaccountController.nameController,
+                      },
+                      textcontrolller: createaccountController.emailController,
+                      prefixIcon: Icons.email,
                     ),
                     h10,
                     Textformfield(
                       hinttext: 'Password',
                       validator: (value) {
                         return logincontroller.passwordValidator(value);
-                      }, textcontrolller: createaccountController.passwordController,
+                      },
+                      textcontrolller:
+                          createaccountController.passwordController,
+                      prefixIcon: Icons.lock,
                     ),
                     h10,
                     Textformfield(
@@ -62,14 +69,19 @@ class CreateAccount extends StatelessWidget {
                       validator: (value) {
                         return createaccountController
                             .confirmPasswordValidator(value);
-                      }, textcontrolller: createaccountController.confirmPasswordController,
+                      },
+                      textcontrolller:
+                          createaccountController.confirmPasswordController,
+                      prefixIcon: Icons.lock,
                     ),
                     h10,
                     Textformfield(
                       hinttext: 'Phone',
                       validator: (value) {
                         return createaccountController.phoneValidator(value);
-                      }, textcontrolller: createaccountController.phoneContrller,
+                      },
+                      textcontrolller: createaccountController.phoneContrller,
+                      prefixIcon: Icons.phone,
                     ),
                     h10,
                     Textformfield(
@@ -77,7 +89,10 @@ class CreateAccount extends StatelessWidget {
                       validator: (value) {
                         return createaccountController.addressValidator(value);
                       },
-                      lines: 4, textcontrolller: createaccountController.addressController,
+                      lines: 1,
+                      textcontrolller:
+                          createaccountController.addressController,
+                      prefixIcon: Icons.info,
                     ),
                   ],
                 ),
@@ -95,7 +110,7 @@ class CreateAccount extends StatelessWidget {
                     backgroundColor: MaterialStateProperty.all(black),
                   ),
                   child: Text(
-                    'sign in ',
+                    'sign up ',
                     style: GoogleFonts.ptSerif(),
                   ),
                 ),

@@ -1,6 +1,8 @@
+import 'package:login_page_using_sql/model/model.dart';
 import 'package:sqflite/sqflite.dart';
 
 late Database db;
+    List<PeopleModel> peopleDetail=[];
 
 Future<void> initDatabase() async {
   db = await openDatabase(
@@ -11,5 +13,10 @@ Future<void> initDatabase() async {
           'CREATE TABLE people(id INTEGER PRIMARY KEY,password INTEGER,name TEXT,phone INTEGER,email TEXT,address TEXT)');
     },
   );
+}
+
+addPeople(PeopleModel value ){
+  peopleDetail.add(value);
+
 }
 

@@ -1,5 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:login_page_using_sql/db/db_functions.dart';
+import 'package:login_page_using_sql/model/model.dart';
+import 'package:login_page_using_sql/view/home.dart';
 
 class CreateAccountController extends GetxController {
   final passwordController = TextEditingController();
@@ -10,8 +15,23 @@ class CreateAccountController extends GetxController {
   final addressController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  buttonclickValidator() {
+  Future<void> buttonclickValidator() async {
     if (formKey.currentState!.validate()) {
+      final name = nameController.text.trim();
+      final phone = phoneContrller.text.trim();
+      final email = emailController.text.trim();
+      final address = addressController.text.trim();
+      final password = passwordController.text.trim();
+      final people = PeopleModel(
+          name: name,
+          phone: phone,
+          email: email,
+          password: password,
+          address: address);
+      addPeople(people);
+
+      log(peopleDetail[1].toString());
+      Get.to(() => Home());
       return;
     }
   }

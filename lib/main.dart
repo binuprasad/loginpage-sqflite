@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_page_using_sql/db/db_functions.dart';
-import 'package:login_page_using_sql/view/home.dart';
+import 'package:login_page_using_sql/view/login.dart';
 
 void main()async {
 
